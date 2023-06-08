@@ -1,18 +1,14 @@
 import './sources.css';
+import { SourceData } from '../../app/interfaces';
 
-interface SourceData {
-    name: string;
-    id: string;
-}
 class Sources {
-   public draw(data: SourceData[]): void {
+    public draw(data: Readonly<SourceData[]>): void {
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
 
         if (!sourceItemTemp) {
             throw new Error('sourceItemTemp is null');
         }
-
         data.forEach((item: SourceData) => {
             const sourceClone = sourceItemTemp.content.cloneNode(true) as DocumentFragment;
 

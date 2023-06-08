@@ -1,20 +1,9 @@
 import './news.css';
-
-interface NewsItem {
-    author: string;
-    source: {
-        name: string;
-    };
-    publishedAt: string;
-    urlToImage: string;
-    title: string;
-    description: string;
-    url: string;
-}
+import { NewsItem } from '../../app/interfaces';
 
 class News {
-    public draw(data: ReadonlyArray<NewsItem>): void {
-        const news: ReadonlyArray<NewsItem> = data.slice(0, 10);
+    public draw(data: Readonly<NewsItem[]>): void {
+        const news: Readonly<NewsItem[]> = data.slice(0, 10);
 
         const fragment: DocumentFragment = document.createDocumentFragment();
         const newsItemTemp: HTMLTemplateElement | null = document.querySelector<HTMLTemplateElement>('#newsItemTemp');
