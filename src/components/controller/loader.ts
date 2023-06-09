@@ -1,4 +1,4 @@
-import { SourceData, Options } from '../app/interfaces';
+import { Data, Options } from '../app/interfaces';
 
 enum HttpMethod {
     GET = 'GET',
@@ -20,19 +20,19 @@ abstract class Loader {
     protected load(
         method: HttpMethod,
         endpoint: string,
-        callback: (data: SourceData) => void,
+        callback: (data: Data) => void,
         options: Partial<Options> = {}
     ): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data: SourceData) => callback(data))
+            .then((data: Data) => callback(data))
             .catch((err) => console.error(err));
     }
 
     protected getResp(
         { endpoint, options = {} }: { endpoint: string; options?: Partial<Options> },
-        callback: (data: SourceData) => void = () => {
+        callback: (data: Data) => void = () => {
             console.error('No callback for GET response');
         }
     ): void {
