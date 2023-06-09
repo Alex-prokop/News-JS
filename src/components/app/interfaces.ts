@@ -18,3 +18,7 @@ export interface NewsItem {
     description: string;
     url: string;
 }
+export interface Options {
+    sources: string;
+    apiKey: string;
+}
