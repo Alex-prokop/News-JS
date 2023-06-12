@@ -1,11 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
 body {
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
 }
+#main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-header {
-    padding: 10px 30px;
+#content {
+    flex: 1 0 auto;
+}
+
+.container {
+    max-width: 1280px;
+    padding: 0 40px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #30c5ff;
 }
 
 header h1 {
@@ -13,23 +39,61 @@ header h1 {
     font-weight: 800;
 }
 
-footer {
-    height: 100px;
+.footer {
+    flex-shrink: 0;
+
+    background-color: #30c5ff;
+    padding: 20px;
+}
+.footer-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    margin: 0 auto;
+    color: #fff;
 }
-footer .copyright {
-    font-size: 14px;
-    color: #333;
-    text-align: center;
+
+.github {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    background-image: url('./img/github-svgrepo.svg');
+    width: 160px;
+    height: 45px;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
-footer .copyright a {
-    color: #444;
+.github a {
+    color: #fff;
 }
-footer .copyright a:hover {
-    color: #555;
+
+.github img {
+    width: 50px;
+    height: 50px;
 }
-footer .copyright:before {
-    content: '©';
+
+.rss {
+    width: 121px;
+    height: 45px;
+    background-image: url('./img/rss.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+@media (min-width: 320px) {
+    body {
+        font-size: 1rem;
+    }
+
+    .github {
+        width: 135px;
+    }
+
+    .github.img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .rig {
+        display: none;
+    }
 }
