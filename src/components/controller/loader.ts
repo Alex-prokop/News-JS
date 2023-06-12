@@ -41,7 +41,7 @@ abstract class Loader {
 
     private makeUrl(options: Partial<Options>, endpoint: string): string {
         const urlOptions: Partial<Options> = { ...this.options, ...options };
-        let url: string = `${this.baseLink}${endpoint}?`;
+        let url = `${this.baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key: string) => {
             url += `${key}=${urlOptions[key as keyof Options]}&`;
